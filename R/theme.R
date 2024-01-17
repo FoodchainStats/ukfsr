@@ -13,6 +13,8 @@ theme_ukfsr <- function(base_size = 10, base_family = "",
                            base_line_size = base_size / 20,
                            base_rect_size = base_size / 20) {
   
+  # https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html
+  
   # The half-line (base-fontsize / 2) sets up the basic vertical
   # rhythm of the theme. Most margins will be set to this value.
   # However, when we work with relative sizes, we may want to multiply
