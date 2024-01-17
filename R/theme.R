@@ -1,5 +1,15 @@
-
-theme_fsr <- function(base_size = 10, base_family = "",
+#' UKFSR chart theme
+#'
+#' @param base_size Base font size in pts
+#' @param base_family Base font family
+#' @param base_line_size Base size for line elements
+#' @param base_rect_size Base size for rect elements
+#'
+#' @return
+#' @export
+#'
+#' @examples
+theme_ukfsr <- function(base_size = 10, base_family = "",
                            base_line_size = base_size / 20,
                            base_rect_size = base_size / 20) {
   
