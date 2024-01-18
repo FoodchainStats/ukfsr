@@ -27,7 +27,7 @@ theme_ukfsr <- function(base_size = 10, base_family = "",
   # Throughout the theme, we use three font sizes, `base_size` (`rel(1)`)
   # for normal, `rel(0.8)` for small, and `rel(1.2)` for large.
   
-  t <- ggplot2::theme_void() + 
+  t <- ggplot2::theme_void() %+replace% 
     ggplot2::theme(
     # ggplot2::elements in this first block aren't used directly, but are inherited
     # by others
