@@ -50,7 +50,7 @@ save_graphic <- function(graphic, indicator_id, indicator_desc) {
     stop("object must be a ggplot graphic")
   }
   fname <- make_filename(indicator_id, indicator_desc)
-  ggsave(filename = paste0(fname, ".png"), plot = graphic, device = "png", width = 960/72, height = 640/72, dpi = 72)
-  ggsave(filename = paste0(fname, ".svg"), plot = graphic, device = "svg", width = 960/72, height = 640/72, dpi = 72)
+  ggplot2::ggsave(filename = paste0(fname, ".png"), plot = graphic, device = "png", width = 960/72, height = 640/72, dpi = 72)
+  ggplot2::ggsave(filename = paste0(fname, ".svg"), plot = graphic, device = "svg", width = 960/72, height = 640/72, dpi = 72)
   return(fname)
 }
