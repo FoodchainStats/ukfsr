@@ -20,6 +20,14 @@ theme_ukfsr(
 
 \item{base_rect_size}{Base size for rect elements}
 }
+\value{
+A chart theme
+}
 \description{
 UKFSR chart theme
+}
+\examples{
+ggplot2::ggplot(mtcars) + 
+ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
+theme_ukfsr()
 }

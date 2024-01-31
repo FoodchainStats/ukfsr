@@ -5,10 +5,13 @@
 #' @param base_line_size Base size for line elements
 #' @param base_rect_size Base size for rect elements
 #'
-#' @return
+#' @return A chart theme
 #' @export
 #'
 #' @examples
+#' ggplot2::ggplot(mtcars) + 
+#' ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
+#' theme_ukfsr()
 theme_ukfsr <- function(base_size = 10, base_family = "",
                            base_line_size = base_size / 20,
                            base_rect_size = base_size / 20) {
