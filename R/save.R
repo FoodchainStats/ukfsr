@@ -44,13 +44,14 @@ make_filename <- function(id, desc) {
 }
 
 
-save_graphic <- function(graphic, indicator_id, indicator_desc) {
+save_graphic <- function(graphic, indicator_id, indicator_desc = "", path = getwd()) {
   gtype <- class(graphic) %in% c("gg", "ggplot") 
   if(!all(gtype)) {
     stop("object must be a ggplot graphic")
   }
   fname <- make_filename(indicator_id, indicator_desc)
-  ggplot2::ggsave(filename = paste0(fname, ".png"), plot = graphic, device = "png", width = 960/72, height = 640/72, dpi = 72)
-  ggplot2::ggsave(filename = paste0(fname, ".svg"), plot = graphic, device = "svg", width = 960/72, height = 640/72, dpi = 72)
-  return(fname)
+  ggplot2::ggsave(filename = paste0(fname, ".png"), path = path, plot = graphic, device = "png", width = 960/72, height = 640/72, dpi = 72)
+  ggplot2::ggsave(filename = paste0(fname, ".svg"), path = path, plot = graphic, device = "svg", width = 960/72, height = 640/72, dpi = 72)
+  # return(fname)
+  rlang::inform(c("Saving file", paste0(path, "/", fname, ".png"), paste0(path, "/", fname, ".svg")))
 }
