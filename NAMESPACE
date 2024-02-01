@@ -2,6 +2,7 @@
 
 export(check_indicator)
 export(parse_indicator)
+export(s3_bucket)
 export(save_graphic)
 export(theme_ukfsr)
 importFrom(ggplot2,"%+replace%")

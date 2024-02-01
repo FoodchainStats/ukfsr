@@ -17,7 +17,10 @@ save_graphic(graphic, indicator_id, indicator_desc = "")
 Saves a png and svg file to the S3 bucket
 }
 \description{
-Save a UKFSR graphic to the S3 bucket
+Graphics are saved into a folder structure on the bucket as specified in the
+UKFSR guidance. This is currently 'theme_x/tT_S_I/output/graphics'. Filenames
+are derived from the indicator id and description. The bucket location is
+encoded in s3_bucket.
 }
 \examples{
 \dontrun{

@@ -13,19 +13,22 @@ check_indicator(string)
 A logical
 }
 \description{
-UKFSR indicator ids contain 4 components:
-}
-\details{
+A UKFSR indicator can be uniquely identified from 3 main hierarchical components separated by periods:
 \itemize{
 \item theme (1-5)
 \item section (1-9)
 \item indicator (1-99)
-\item variant - optional (a-z)
 }
 
-in the form \code{T.S.Iv}.
+with an optional variant suffix in the form (a -z). Thus a valid indicator id
+is a string in the form "T.S.Iv". Some examples are "1.3.7a". "4.2.11".
+check_indicator tests an indicator id string for compliance and returns TRUE
+or FALSE.
 }
 \examples{
+# A valid id
 check_indicator("2.3.5a")
+
+# An invalid id
 check_indicator("10.3.1")
 }
