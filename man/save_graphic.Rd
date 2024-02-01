@@ -21,6 +21,9 @@ Save a UKFSR graphic to the S3 bucket
 }
 \examples{
 \dontrun{
+chart <- ggplot2::ggplot(mtcars) + 
+ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt))
 
+save_graphic(chart, "1.1.1", "Test graphic")
 }
 }

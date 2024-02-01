@@ -6,9 +6,18 @@
 # description <- "Import intensity, UK 2024-25"
 
 
-# Indicator id is Theme(1-5).Section(1-9).Indicator(1-99)Variant(a-z)
+
 
 #' Test whether a string is a valid UKFSR indicator id
+#' 
+#' UKFSR indicator ids contain 4 components:
+#' 
+#' * theme (1-5)
+#' * section (1-9)
+#' * indicator (1-99)
+#' * variant - optional (a-z)
+#' 
+#' in the form `T.S.Iv`.
 #'
 #' @param string String containing a UKFSR indicator id
 #'
@@ -100,7 +109,10 @@ parse_indicator <- function(indicator_id) {
 #'
 #' @examples
 #' \dontrun{
+#' chart <- ggplot2::ggplot(mtcars) + 
+#' ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt))
 #' 
+#' save_graphic(chart, "1.1.1", "Test graphic")
 #' }
 save_graphic <- function(graphic, indicator_id, indicator_desc = "") {
   gtype <- class(graphic) %in% c("gg", "ggplot") 

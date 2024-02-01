@@ -13,7 +13,17 @@ check_indicator(string)
 A logical
 }
 \description{
-Test whether a string is a valid UKFSR indicator id
+UKFSR indicator ids contain 4 components:
+}
+\details{
+\itemize{
+\item theme (1-5)
+\item section (1-9)
+\item indicator (1-99)
+\item variant - optional (a-z)
+}
+
+in the form \code{T.S.Iv}.
 }
 \examples{
 check_indicator("2.3.5a")
