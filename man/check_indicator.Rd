@@ -32,3 +32,6 @@ check_indicator("2.3.5a")
 # An invalid id
 check_indicator("10.3.1")
 }
+\seealso{
+\code{\link[=parse_indicator]{parse_indicator()}} extracts the components of an indicator id
+}

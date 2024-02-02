@@ -6,10 +6,10 @@
 \alias{ukfsr-package}
 \title{ukfsr: Tools to assist with producing the UK Food Security Report}
 \description{
-What the package does (one paragraph).
+Contains miscellaneous functions to help with wrangling data and graphics for the UKFSR.
 }
 \author{
-\strong{Maintainer}: David Lee \email{david.lee@defra.gov.uk} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: David Lee \email{david.lee@defra.gov.uk}
 
 }
 \keyword{internal}

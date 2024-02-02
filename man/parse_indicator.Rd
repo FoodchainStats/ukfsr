@@ -22,3 +22,6 @@ i$section
 i$indicator
 i$variant
 }
+\seealso{
+\code{\link[=check_indicator]{check_indicator()}} tests whether an indicator id is valid
+}

@@ -1,13 +1,3 @@
-# id <- "1.2.5a"
-# theme <- 1
-# section <- 2
-# indicator <- 3
-# variant <- "b"
-# description <- "Import intensity, UK 2024-25"
-
-
-
-
 #' Test whether a string is a valid UKFSR indicator id
 #'
 #' @description
@@ -21,10 +11,11 @@
 #' is a string in the form "T.S.Iv". Some examples are "1.3.7a". "4.2.11".
 #' check_indicator tests an indicator id string for compliance and returns TRUE
 #' or FALSE.
-#'
+#' 
 #' @param string String containing a UKFSR indicator id
 #'
 #' @return A logical
+#' @seealso [parse_indicator()] extracts the components of an indicator id
 #' @export
 #'
 #' @examples
@@ -43,6 +34,8 @@ check_indicator <- function(string) {
     } else{
       check = FALSE
     }
+      
+    
   }
   return(check)
 }
@@ -75,6 +68,7 @@ make_filename <- function(id, desc) {
 #' @param indicator_id A valid UKFSR indicator id
 #'
 #' @return A named list of the indicator id components
+#' @seealso [check_indicator()] tests whether an indicator id is valid
 #' @export
 #'
 #' @examples
@@ -109,7 +103,7 @@ parse_indicator <- function(indicator_id) {
 #' Graphics are saved into a folder structure on the bucket as specified in the
 #' UKFSR guidance. This is currently 'theme_x/tT_S_I/output/graphics'. Filenames
 #' are derived from the indicator id and description. The bucket location is
-#' encoded in s3_bucket.
+#' encoded in [s3_bucket()].
 #'
 #' @param graphic A `ggplot` chart object
 #' @param indicator_id A valid UKFSR indicator id
@@ -132,11 +126,11 @@ save_graphic <- function(graphic, indicator_id, indicator_desc = "") {
   }
   fname <- make_filename(indicator_id, indicator_desc)
   id <- parse_indicator(indicator_id)
-  s3path <- paste0("theme_", id$theme, "/T", id$theme, "_", id$section, "_", id$indicator, "/output/graphics/", fname)
+  s3path <- paste0("theme_", id$theme, "/t", id$theme, "_", id$section, "_", id$indicator, "/output/graphics/", fname)
   tmp <- tempfile()
   
-  png <- aws.s3::object_exists(paste0(s3path, ".png"), s3_bucket())
-  svg <- aws.s3::object_exists(paste0(s3path, ".svg"), s3_bucket())
+  png <- suppressMessages(aws.s3::object_exists(paste0(s3path, ".png"), s3_bucket()))
+  svg <- suppressMessages(aws.s3::object_exists(paste0(s3path, ".svg"), s3_bucket()))
   
   if(png|svg) {
     query <- readline(prompt = "A file with this name already exists. Overwrite? (Y/N)")
