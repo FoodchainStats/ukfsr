@@ -154,5 +154,56 @@ save_graphic <- function(graphic, indicator_id, indicator_desc = "") {
     # return(fname)
   rlang::inform(c("Saving file",
                   paste0(s3_bucket(), "/", s3path, ".png"), 
-                  paste0(s3_bucket(), "/", s3path, ".png")))
+                  paste0(s3_bucket(), "/", s3path, ".svg")))
+}
+
+
+#' Save UKFSR data for publication to the S3 bucket
+#'
+#' data is saved as a csv into a folder structure on the bucket as specified in
+#' the UKFSR guidance. This is currently 'theme_x/tT_S_I/output/graphics'.
+#' Filenames are derived from the indicator id and description. The bucket
+#' location is encoded in [s3_bucket()].
+#'
+#' @param data A data frame
+#' @param indicator_id A valid UKFSR indicator id
+#' @param indicator_desc A title for the graphic
+#'
+#' @return Saves a csv file to the S3 bucket
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' save_csv(mtcars, "1.1.1", "mtcars data")
+#' }
+save_csv <- function(data, indicator_id, indicator_desc = "") {
+  if(!any(class(data) %in% c("data.frame", "tbl_df", "tbl"))){
+    rlang::abort("object is not a data frame")
+  }
+  
+  fname <- make_filename(indicator_id, indicator_desc)
+  id <- parse_indicator(indicator_id)
+  s3path <- paste0("theme_", id$theme, "/t", id$theme, "_", id$section, "_", id$indicator, "/output/csv/", fname)
+  
+  csv <- suppressMessages(aws.s3::object_exists(paste0(s3path, ".csv"), s3_bucket()))
+  
+  if(csv) {
+    query <- readline(prompt = "A file with this name already exists. Overwrite? (Y/N)")
+    if(tolower(query) != "y" ) {
+      rlang::abort("Data not saved")
+      
+    }
+  }
+  
+  aws.s3::s3write_using(data, 
+                        FUN = write.csv, 
+                        object = paste0(s3path, ".csv"),
+                        bucket = s3_bucket(),
+                        opts = list("headers" =list("x-amz-acl" = "bucket-owner-full-control")),
+                        row.names = FALSE)
+  
+  rlang::inform(c("Saving file",
+                  paste0(s3_bucket(), "/", s3path, ".csv")))
+  
+  
 }
