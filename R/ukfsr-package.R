@@ -13,5 +13,6 @@
 #' @importFrom ggplot2 theme
 #' @importFrom ggplot2 theme_void
 #' @importFrom ggplot2 unit
+#' @importFrom utils write.csv
 ## usethis namespace: end
 NULL

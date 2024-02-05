@@ -12,4 +12,5 @@ Imports:
     aws.s3,
     ggplot2,
     rlang,
-    stringr
+    stringr,
+    utils

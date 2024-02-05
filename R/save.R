@@ -196,7 +196,7 @@ save_csv <- function(data, indicator_id, indicator_desc = "") {
   }
   
   aws.s3::s3write_using(data, 
-                        FUN = write.csv, 
+                        FUN = utils::write.csv, 
                         object = paste0(s3path, ".csv"),
                         bucket = s3_bucket(),
                         opts = list("headers" =list("x-amz-acl" = "bucket-owner-full-control")),
