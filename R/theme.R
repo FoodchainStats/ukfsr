@@ -4,6 +4,7 @@
 #' @param base_family Base font family
 #' @param base_line_size Base size for line elements
 #' @param base_rect_size Base size for rect elements
+#' @param horizontal Set to \code{TRUE} to adjust the theme for horizontal plots
 #'
 #' @return A chart theme
 #' @export
@@ -12,9 +13,11 @@
 #' ggplot2::ggplot(mtcars) + 
 #' ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
 #' theme_ukfsr()
-theme_ukfsr <- function(base_size = 10, base_family = "",
-                           base_line_size = base_size / 20,
-                           base_rect_size = base_size / 20) {
+theme_ukfsr <- function(base_size = 10, 
+                        base_family = "",
+                        base_line_size = base_size / 20,
+                        base_rect_size = base_size / 20,
+                        horizontal = FALSE) {
   
   # https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html
   
@@ -120,7 +123,7 @@ theme_ukfsr <- function(base_size = 10, base_family = "",
     
     panel.background =   ggplot2::element_rect(fill = "white", colour = NA),
     panel.border =       ggplot2::element_blank(),
-    panel.grid.major.y = ggplot2::element_line(colour = "black",linewidth = ggplot2::rel(0.5)),
+    panel.grid.major.y = ggplot2::element_line(colour = "#cbcbcb",linewidth = ggplot2::rel(0.5)),
     panel.grid.major.x = ggplot2::element_blank(),
     panel.grid.minor =   ggplot2::element_blank(),
     panel.spacing =      ggplot2::unit(half_line, "pt"),
@@ -171,6 +174,14 @@ theme_ukfsr <- function(base_size = 10, base_family = "",
     
   )
   
-  t
+  if(horizontal) {
+    t <- t %+replace%
+      ggplot2::theme(
+        panel.grid.major.x = ggplot2::element_line(colour = "#cbcbcb",linewidth = ggplot2::rel(0.5)),
+        panel.grid.major.y = ggplot2::element_blank(),  
+      )
+  }
+  
+  t 
   
 }

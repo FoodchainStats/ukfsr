@@ -3,7 +3,7 @@
 #' The bucket is used to store final publication data and graphics, as well as
 #' underlying raw data.
 #'
-#' @return A string containg the bucket location
+#' @return A string containing the bucket location
 #' @export
 #'
 #' @examples

@@ -8,7 +8,8 @@ theme_ukfsr(
   base_size = 10,
   base_family = "",
   base_line_size = base_size/20,
-  base_rect_size = base_size/20
+  base_rect_size = base_size/20,
+  horizontal = FALSE
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ theme_ukfsr(
 \item{base_line_size}{Base size for line elements}
 
 \item{base_rect_size}{Base size for rect elements}
+
+\item{horizontal}{Set to \code{TRUE} to adjust the theme for horizontal plots}
 }
 \value{
 A chart theme
