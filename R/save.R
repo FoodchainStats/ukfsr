@@ -26,10 +26,10 @@
 #' check_indicator("10.3.1")
 check_indicator <- function(string) {
   # check that the first chars fit the pattern
-  check <- stringr::str_starts(string, pattern = "[1-5]\\.[1-9]\\.[1-9][0-9]?[a-z]{0,1}")
+  check <- stringr::str_starts(string, pattern = "(fsi|[1-5])\\.[1-9]\\.[1-9][0-9]?[a-z]{0,1}")
   # fail if there are extra chars at the end
   if(check) {
-    if(nchar(stringr::str_extract(string, pattern = "[1-5]\\.[1-9]\\.[1-9][0-9]?[a-z]{0,1}")) == nchar(string)){
+    if(nchar(stringr::str_extract(string, pattern = "(fsi|[1-5])\\.[1-9]\\.[1-9][0-9]?[a-z]{0,1}")) == nchar(string)){
       check = TRUE
     } else{
       check = FALSE
@@ -84,10 +84,17 @@ parse_indicator <- function(indicator_id) {
     rlang::abort(paste(indicator_id, "is not a valid indicator id. See`check_indicator`."))
   }
   
-  t <- stringr::str_sub(indicator_id, 1,1)
-  s <- stringr::str_sub(indicator_id,3,3)
-  i <- stringr::str_extract(stringr::str_sub(indicator_id, 5, stringr::str_length(indicator_id)), "[0-9]*")
-  v <- stringr::str_extract(stringr::str_sub(indicator_id, -1), "[a-z]")
+  if(stringr::str_starts(indicator_id, "fsi")) { 
+    t <- stringr::str_sub(indicator_id, 1,3)
+    s <- stringr::str_sub(indicator_id,5,5)
+    i <- stringr::str_extract(stringr::str_sub(indicator_id, 7, stringr::str_length(indicator_id)), "[0-9]*")
+    v <- stringr::str_extract(stringr::str_sub(indicator_id, -1), "[a-z]")
+    } else {
+    t <- stringr::str_sub(indicator_id, 1,1)
+    s <- stringr::str_sub(indicator_id,3,3)
+    i <- stringr::str_extract(stringr::str_sub(indicator_id, 5, stringr::str_length(indicator_id)), "[0-9]*")
+    v <- stringr::str_extract(stringr::str_sub(indicator_id, -1), "[a-z]")
+    }
   
   indicator <- list(theme = t,
                     section = s, 
