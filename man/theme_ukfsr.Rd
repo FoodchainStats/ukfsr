@@ -31,7 +31,7 @@ UKFSR chart theme
 }
 \section{Default theme settings}{
 Used with the default parameters, \code{\link[=theme_ukfsr]{theme_ukfsr()}} formats charts in the
-following way: the \code\link{base_size} defines the default text size at \emph{10pt}.
+following way: the base_size defines the default text size at \strong{10pt}.
 Other chart text elements are assigned font sizes relative to that using a
 multiplier, as below.
 \itemize{
@@ -39,8 +39,11 @@ multiplier, as below.
 \item \emph{axis.title:} 1.8 (18pt)
 \item \emph{legend.text:} 2 (20pt)
 \item facet titles \emph{strip.text:} 2.2 (22pt)
-\item \emph{linewidth:} 0.5
+\item \emph{plot.title} 1.2 (12pt)
+\item \emph{plot.caption} 0.8 (8pt)
 }
+
+The default linewidth for lines and rectangles is \strong{0.5}.
 }
 
 \examples{
