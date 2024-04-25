@@ -7,7 +7,7 @@
 s3_bucket()
 }
 \value{
-A string containg the bucket location
+A string containing the bucket location
 }
 \description{
 The bucket is used to store final publication data and graphics, as well as

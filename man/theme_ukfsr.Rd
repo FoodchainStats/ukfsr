@@ -29,6 +29,23 @@ A chart theme
 \description{
 UKFSR chart theme
 }
+\section{Default theme settings}{
+Used with the default parameters, \code{\link[=theme_ukfsr]{theme_ukfsr()}} formats charts in the
+following way: the base_size defines the default text size at \strong{10pt}.
+Other chart text elements are assigned font sizes relative to that using a
+multiplier, as below.
+\itemize{
+\item \emph{axis.text:} 1.8 (18pt)
+\item \emph{axis.title:} 1.8 (18pt)
+\item \emph{legend.text:} 2 (20pt)
+\item facet titles \emph{strip.text:} 2.2 (22pt)
+\item \emph{plot.title} 1.2 (12pt)
+\item \emph{plot.caption} 0.8 (8pt)
+}
+
+The default linewidth for lines and rectangles is \strong{0.5}.
+}
+
 \examples{
 ggplot2::ggplot(mtcars) + 
 ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 

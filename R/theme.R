@@ -7,6 +7,26 @@
 #' @param horizontal Set to \code{TRUE} to adjust the theme for horizontal plots
 #'
 #' @return A chart theme
+#' 
+#' @details
+#' # Default theme settings
+#' 
+#' Used with the default parameters, [theme_ukfsr()] formats charts in the
+#' following way: the base_size defines the default text size at **10pt**.
+#' Other chart text elements are assigned font sizes relative to that using a
+#' multiplier, as below.
+#' 
+#' - *axis.text:* 1.8 (18pt)
+#' - *axis.title:* 1.8 (18pt)
+#' - *legend.text:* 2 (20pt)
+#' - facet titles *strip.text:* 2.2 (22pt)
+#' - *plot.title* 1.2 (12pt)
+#' - *plot.caption* 0.8 (8pt)
+#' 
+#' The default linewidth for lines and rectangles is **0.5**.
+#'  
+#' 
+#' 
 #' @export
 #'
 #' @examples
