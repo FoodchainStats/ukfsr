@@ -51,7 +51,7 @@ theme_ukfsr <- function(base_size = 10,
   half_line <- base_size / 2
   
   # Set default geom_line linewidth
-  update_geom_defaults("line", list(linewidth = 1))
+  ggplot2::update_geom_defaults("line", list(linewidth = 1))
   
   # Throughout the theme, we use three font sizes, `base_size` (`rel(1)`)
   # for normal, `rel(0.8)` for small, and `rel(1.2)` for large.

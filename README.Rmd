@@ -29,3 +29,9 @@ You can install the development version of ukfsr from [GitHub](https://github.co
 devtools::install_github("FoodchainStats/ukfsr")
 ```
 
+This is part of the UKFSR infrastructure, which comprises a number of elements.
+The public elements are listed below:
+
+- **this package**. This R package is intended to contain helper functions to assist in the production of the report, mostly to ensure graphics are consistent.
+- the [ukfsr-docs](https://github.com/FoodchainStats/ukfsr-docs) repo and [website](https://foodchainstats.github.io/ukfsr-docs/). Here we keep the style guide and all other guidance for the team producing the UKFSR, current and future.
+- the [UKFSR2024](https://github.com/Defra-Data-Science-Centre-of-Excellence/UKFSR2024) repo. Here you will find mostly the code used to produce the graphics in the UKFSR, alongside some supporting code.
