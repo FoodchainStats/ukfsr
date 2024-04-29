@@ -37,7 +37,8 @@ theme_ukfsr <- function(base_size = 10,
                         base_family = "",
                         base_line_size = base_size / 20,
                         base_rect_size = base_size / 20,
-                        horizontal = FALSE) {
+                        horizontal = FALSE,
+                        chart_line_size = 1) {
   
   # https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html
   
@@ -51,7 +52,7 @@ theme_ukfsr <- function(base_size = 10,
   half_line <- base_size / 2
   
   # Set default geom_line linewidth
-  ggplot2::update_geom_defaults("line", list(linewidth = 1))
+  ggplot2::update_geom_defaults("line", list(linewidth = chart_line_size))
   
   # Throughout the theme, we use three font sizes, `base_size` (`rel(1)`)
   # for normal, `rel(0.8)` for small, and `rel(1.2)` for large.
