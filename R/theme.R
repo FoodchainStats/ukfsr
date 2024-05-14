@@ -5,6 +5,7 @@
 #' @param base_line_size Base size for line elements
 #' @param base_rect_size Base size for rect elements
 #' @param horizontal Set to \code{TRUE} to adjust the theme for horizontal plots
+#' @param chart_line_size sets the default linewidth for geom_line
 #'
 #' @return A chart theme
 #' 
@@ -12,16 +13,16 @@
 #' # Default theme settings
 #' 
 #' Used with the default parameters, [theme_ukfsr()] formats charts in the
-#' following way: the base_size defines the default text size at **10pt**.
+#' following way: the base_size defines the default text size at **14pt**.
 #' Other chart text elements are assigned font sizes relative to that using a
 #' multiplier, as below.
 #' 
-#' - *axis.text:* 1.8 (18pt)
-#' - *axis.title:* 1.8 (18pt)
-#' - *legend.text:* 2 (20pt)
-#' - facet titles *strip.text:* 2.2 (22pt)
-#' - *plot.title* 1.2 (12pt)
-#' - *plot.caption* 0.8 (8pt)
+#' - *axis.text:* 1.8
+#' - *axis.title:* 1.8
+#' - *legend.text:* 2 
+#' - facet titles *strip.text:* 2.2 
+#' - *plot.title* 1.2 
+#' - *plot.caption* 0.8
 #' 
 #' The default linewidth for lines and rectangles is **0.5**.
 #'  
@@ -33,12 +34,12 @@
 #' ggplot2::ggplot(mtcars) + 
 #' ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
 #' theme_ukfsr()
-theme_ukfsr <- function(base_size = 10, 
+theme_ukfsr <- function(base_size = 14, 
                         base_family = "",
                         base_line_size = base_size / 20,
                         base_rect_size = base_size / 20,
                         horizontal = FALSE,
-                        chart_line_size = 1) {
+                        chart_line_size = 2) {
   
   # https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html
   
@@ -132,7 +133,8 @@ theme_ukfsr <- function(base_size = 10,
     legend.key =         ggplot2::element_blank(),
     legend.key.size =    ggplot2::unit(1.2, "lines"),
     legend.key.height =  NULL,
-    legend.key.width =   NULL,
+    # key.width amended from NULL
+    legend.key.width =   unit(base_size*2, "pt"),
     # legend.key.spacing = ggplot2::unit(half_line, "pt"),
     legend.text =        ggplot2::element_text(size = ggplot2::rel(2)),
     legend.title =       ggplot2::element_blank(),

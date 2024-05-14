@@ -5,11 +5,12 @@
 \title{UKFSR chart theme}
 \usage{
 theme_ukfsr(
-  base_size = 10,
+  base_size = 14,
   base_family = "",
   base_line_size = base_size/20,
   base_rect_size = base_size/20,
-  horizontal = FALSE
+  horizontal = FALSE,
+  chart_line_size = 2
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ theme_ukfsr(
 \item{base_rect_size}{Base size for rect elements}
 
 \item{horizontal}{Set to \code{TRUE} to adjust the theme for horizontal plots}
+
+\item{chart_line_size}{sets the default linewidth for geom_line}
 }
 \value{
 A chart theme
@@ -31,16 +34,16 @@ UKFSR chart theme
 }
 \section{Default theme settings}{
 Used with the default parameters, \code{\link[=theme_ukfsr]{theme_ukfsr()}} formats charts in the
-following way: the base_size defines the default text size at \strong{10pt}.
+following way: the base_size defines the default text size at \strong{14pt}.
 Other chart text elements are assigned font sizes relative to that using a
 multiplier, as below.
 \itemize{
-\item \emph{axis.text:} 1.8 (18pt)
-\item \emph{axis.title:} 1.8 (18pt)
-\item \emph{legend.text:} 2 (20pt)
-\item facet titles \emph{strip.text:} 2.2 (22pt)
-\item \emph{plot.title} 1.2 (12pt)
-\item \emph{plot.caption} 0.8 (8pt)
+\item \emph{axis.text:} 1.8
+\item \emph{axis.title:} 1.8
+\item \emph{legend.text:} 2
+\item facet titles \emph{strip.text:} 2.2
+\item \emph{plot.title} 1.2
+\item \emph{plot.caption} 0.8
 }
 
 The default linewidth for lines and rectangles is \strong{0.5}.
