@@ -4,6 +4,8 @@
 # ukfsr
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/FoodchainStats/ukfsr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/FoodchainStats/ukfsr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Miscellaneous functions to help with the UKFSR report
