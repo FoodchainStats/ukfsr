@@ -24,7 +24,8 @@ theme_ukfsr(
 
 \item{horizontal}{Set to \code{TRUE} to adjust the theme for horizontal plots}
 
-\item{chart_line_size}{sets the default linewidth for geom_line}
+\item{chart_line_size}{sets the default line width for geom_line. See
+\emph{Default theme settings}}
 }
 \value{
 A chart theme
@@ -41,12 +42,19 @@ multiplier, as below.
 \item \emph{axis.text:} 1.8
 \item \emph{axis.title:} 1.8
 \item \emph{legend.text:} 2
-\item facet titles \emph{strip.text:} 2.2
+\item \emph{strip.text:} 2.2 (facet titles)
 \item \emph{plot.title} 1.2
 \item \emph{plot.caption} 0.8
 }
 
-The default linewidth for lines and rectangles is \strong{0.5}.
+The default linewidth for lines and rectangles is \strong{0.7}.
+
+\strong{Chart line width}
+\code{\link[=theme_ukfsr]{theme_ukfsr()}} uses \code{\link[ggplot2:update_defaults]{ggplot2::update_geom_defaults()}} to change the default
+line width used by \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}}. I'm not sure if this is strictly
+speaking good practice to have a theme affect a geom. It will impact on any
+uses of geom_line after \code{\link[=theme_ukfsr]{theme_ukfsr()}} has been applied. You can override in
+individual charts with the lwd parameter.
 }
 
 \examples{

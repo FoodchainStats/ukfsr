@@ -9,12 +9,14 @@ save_csv(data, indicator_id, indicator_desc = "")
 \arguments{
 \item{data}{A data frame}
 
-\item{indicator_id}{A valid UKFSR indicator id}
+\item{indicator_id}{A valid UKFSR indicator id. See \code{\link[=check_indicator]{check_indicator()}}.}
 
 \item{indicator_desc}{A title for the graphic}
 }
 \value{
-Saves a csv file to the S3 bucket
+Saves a csv file to the S3 bucket. The filename will be the indicator
+id and description (with all punctuation removed), delimited by underscores
+'_'.
 }
 \description{
 data is saved as a csv into a folder structure on the bucket as specified in
@@ -26,4 +28,7 @@ location is encoded in \code{\link[=s3_bucket]{s3_bucket()}}.
 \dontrun{
 save_csv(mtcars, "1.1.1", "mtcars data")
 }
+}
+\seealso{
+\code{\link[=save_graphic]{save_graphic()}} for saving images
 }

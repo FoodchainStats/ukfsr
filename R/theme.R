@@ -5,7 +5,8 @@
 #' @param base_line_size Base size for line elements
 #' @param base_rect_size Base size for rect elements
 #' @param horizontal Set to \code{TRUE} to adjust the theme for horizontal plots
-#' @param chart_line_size sets the default linewidth for geom_line
+#' @param chart_line_size sets the default line width for geom_line. See
+#'   *Default theme settings*
 #'
 #' @return A chart theme
 #' 
@@ -20,13 +21,18 @@
 #' - *axis.text:* 1.8
 #' - *axis.title:* 1.8
 #' - *legend.text:* 2 
-#' - facet titles *strip.text:* 2.2 
+#' - *strip.text:* 2.2 (facet titles) 
 #' - *plot.title* 1.2 
 #' - *plot.caption* 0.8
 #' 
-#' The default linewidth for lines and rectangles is **0.5**.
+#' The default linewidth for lines and rectangles is **0.7**.
 #'  
-#' 
+#' **Chart line width**
+#' [theme_ukfsr()] uses [ggplot2::update_geom_defaults()] to change the default
+#' line width used by [ggplot2::geom_line()]. I'm not sure if this is strictly
+#' speaking good practice to have a theme affect a geom. It will impact on any
+#' uses of geom_line after [theme_ukfsr()] has been applied. You can override in
+#' individual charts with the lwd parameter.
 #' 
 #' @export
 #'

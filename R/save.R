@@ -3,14 +3,21 @@
 #' @description
 #' A UKFSR indicator can be uniquely identified from 3 main hierarchical components separated by periods:
 #' 
-#' * theme (1-5)
-#' * section (1-9)
-#' * indicator (1-99)
+#' - theme (1-5) *but see Food Security Index below*
+#' - section (1-9)
+#' - indicator (1-99)
 #' 
-#' with an optional variant suffix in the form (a -z). Thus a valid indicator id
+#' with an optional variant suffix in the form (a-z). Thus a valid indicator id
 #' is a string in the form "T.S.Iv". Some examples are "1.3.7a". "4.2.11".
 #' check_indicator tests an indicator id string for compliance and returns TRUE
 #' or FALSE.
+#' 
+#' **Food Security Index**
+#' 
+#' The FSI also contains a set of indicators. For FSI2024 we used the UKFSR
+#' infrastructure to generate the graphics. As a result there is an exceptional
+#' set of indicator ids possible, where the theme can be 'fsi'.
+#' 
 #' 
 #' @param string String containing a UKFSR indicator id
 #'
@@ -113,10 +120,13 @@ parse_indicator <- function(indicator_id) {
 #' encoded in [s3_bucket()].
 #'
 #' @param graphic A `ggplot` chart object
-#' @param indicator_id A valid UKFSR indicator id
+#' @param indicator_id A valid UKFSR indicator id. See [check_indicator()].
 #' @param indicator_desc A title for the graphic
 #'
-#' @return Saves a png and svg file to the S3 bucket
+#' @return Saves a png and svg file to the S3 bucket. The filename will be the
+#'   indicator id and description (with all punctuation removed), delimited by
+#'   underscores '_'.
+#' @seealso [save_csv()] for saving data
 #' @export
 #'
 #' @examples
@@ -125,6 +135,7 @@ parse_indicator <- function(indicator_id) {
 #' ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt))
 #' 
 #' save_graphic(chart, "1.1.1", "Test graphic")
+#' #file created will be '1_1_1_test_graphic.png/svg'
 #' }
 save_graphic <- function(graphic, indicator_id, indicator_desc = "") {
   gtype <- class(graphic) %in% c("gg", "ggplot") 
@@ -173,10 +184,13 @@ save_graphic <- function(graphic, indicator_id, indicator_desc = "") {
 #' location is encoded in [s3_bucket()].
 #'
 #' @param data A data frame
-#' @param indicator_id A valid UKFSR indicator id
+#' @param indicator_id A valid UKFSR indicator id. See [check_indicator()].
 #' @param indicator_desc A title for the graphic
 #'
-#' @return Saves a csv file to the S3 bucket
+#' @return Saves a csv file to the S3 bucket. The filename will be the indicator
+#'   id and description (with all punctuation removed), delimited by underscores
+#'   '_'.
+#' @seealso [save_graphic()] for saving images 
 #' @export
 #'
 #' @examples

@@ -15,15 +15,21 @@ A logical
 \description{
 A UKFSR indicator can be uniquely identified from 3 main hierarchical components separated by periods:
 \itemize{
-\item theme (1-5)
+\item theme (1-5) \emph{but see Food Security Index below}
 \item section (1-9)
 \item indicator (1-99)
 }
 
-with an optional variant suffix in the form (a -z). Thus a valid indicator id
+with an optional variant suffix in the form (a-z). Thus a valid indicator id
 is a string in the form "T.S.Iv". Some examples are "1.3.7a". "4.2.11".
 check_indicator tests an indicator id string for compliance and returns TRUE
 or FALSE.
+
+\strong{Food Security Index}
+
+The FSI also contains a set of indicators. For FSI2024 we used the UKFSR
+infrastructure to generate the graphics. As a result there is an exceptional
+set of indicator ids possible, where the theme can be 'fsi'.
 }
 \examples{
 # A valid id

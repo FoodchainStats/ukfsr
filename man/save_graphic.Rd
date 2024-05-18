@@ -9,12 +9,14 @@ save_graphic(graphic, indicator_id, indicator_desc = "")
 \arguments{
 \item{graphic}{A \code{ggplot} chart object}
 
-\item{indicator_id}{A valid UKFSR indicator id}
+\item{indicator_id}{A valid UKFSR indicator id. See \code{\link[=check_indicator]{check_indicator()}}.}
 
 \item{indicator_desc}{A title for the graphic}
 }
 \value{
-Saves a png and svg file to the S3 bucket
+Saves a png and svg file to the S3 bucket. The filename will be the
+indicator id and description (with all punctuation removed), delimited by
+underscores '_'.
 }
 \description{
 Graphics are saved into a folder structure on the bucket as specified in the
@@ -28,5 +30,9 @@ chart <- ggplot2::ggplot(mtcars) +
 ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt))
 
 save_graphic(chart, "1.1.1", "Test graphic")
+#file created will be '1_1_1_test_graphic.png/svg'
 }
+}
+\seealso{
+\code{\link[=save_csv]{save_csv()}} for saving data
 }
