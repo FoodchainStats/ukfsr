@@ -14,5 +14,6 @@
 #' @importFrom ggplot2 theme_void
 #' @importFrom ggplot2 unit
 #' @importFrom utils write.csv
+#' @importFrom rlang .data
 ## usethis namespace: end
 NULL
