@@ -46,7 +46,7 @@ bucket_manifest <- function(bucket = ukfsr::s3_bucket(), file_ext = "png") {
                     (\(z)(stringr::str_replace_all(z,"_", ".")))(),
                   title = stringr::str_remove(file, "(fsi|[1-5])_[1-9]_[1-9][0-9]?[a-z]{0,1}_") |> 
                     (\(z)(stringr::str_replace_all(z, pattern = "_", replacement = " ")))() |> 
-                    (\(z)(stringr::str_replace_all(z, pattern = "(\\.svg|\\.png)", replacement = " ")))() |> 
+                    (\(z)(stringr::str_replace_all(z, pattern = "(\\.svg|\\.png|\\.csv)", replacement = " ")))() |> 
                     (\(z)(stringr::str_to_sentence(z)))()
     ) |> 
     dplyr::select("indicator_id", "title", "file", "folder", "path" = "Key")
