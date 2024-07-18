@@ -9,7 +9,7 @@ bucket_manifest(bucket = ukfsr::s3_bucket(), file_ext = "png")
 \arguments{
 \item{bucket}{An S3 bucket}
 
-\item{file_ext}{A file extension}
+\item{file_ext}{A file extension, or NULL to return the entire bucket}
 }
 \value{
 A dataframe of the contents of the bucket, with indicator ids and
