@@ -44,10 +44,6 @@
 #' 
 #' p + theme_ukfsr()
 #' 
-#' ggplot2::ggplot(mtcars) + 
-#' ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
-#' theme_ukfsr()
-#' 
 theme_ukfsr <- function(base_size = 14, 
                         base_family = "",
                         base_line_size = base_size / 20,

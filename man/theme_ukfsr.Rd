@@ -65,8 +65,4 @@ p
 
 p + theme_ukfsr()
 
-ggplot2::ggplot(mtcars) + 
-ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
-theme_ukfsr()
-
 }
