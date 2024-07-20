@@ -59,7 +59,7 @@ individual charts with the lwd parameter.
 
 \examples{
 ggplot2::ggplot(mtcars) + 
-2ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
+ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
 theme_ukfsr()
 
 ggplot2::ggplot(prodsupply) + 
