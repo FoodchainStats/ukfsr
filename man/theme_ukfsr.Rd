@@ -62,7 +62,7 @@ ggplot2::ggplot(mtcars) +
 ggplot2::geom_point(ggplot2::aes(x = mpg, y = wt)) + 
 theme_ukfsr()
 
-ggplot2::ggplot(prodsupply) + 
+ggplot2::ggplot(ukfsr::prodsupply) + 
 ggplot2::geom_line(ggplot2::aes(x = year, y = value, colour = type)) + 
 theme_ukfsr()
 }
