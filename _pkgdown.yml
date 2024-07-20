@@ -1,4 +1,5 @@
 url: https://foodchainstats.github.io/ukfsr/
 template:
   bootstrap: 5
+  light-switch: true
 

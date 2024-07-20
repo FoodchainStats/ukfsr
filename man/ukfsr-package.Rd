@@ -8,6 +8,13 @@
 \description{
 Contains miscellaneous functions to help with wrangling data and graphics for the UKFSR.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://foodchainstats.github.io/ukfsr/}
+}
+
+}
 \author{
 \strong{Maintainer}: David Lee \email{david.lee@defra.gov.uk}
 
