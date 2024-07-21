@@ -3,3 +3,31 @@ template:
   bootstrap: 5
   light-switch: true
 
+reference:
+- title: Indicator functions
+- subtitle: Indicator helpers
+  desc: >
+    Functions to help with indicators.
+  contents:
+  - check_indicator
+  - parse_indicator
+  
+- subtitle: Graphics helpers
+  contents:
+  - theme_ukfsr
+  
+- title: S3 bucket operations
+  desc: >
+    Functions that intertact with the bucket.
+  contents:
+  - s3_bucket
+  - bucket_manifest
+  - save_csv
+  - save_graphic
+
+- title: Built in datasets
+  desc: >
+    Its helpful to have some data to test the package functions with.
+  contents:
+  - bdloss
+  - prodsupply

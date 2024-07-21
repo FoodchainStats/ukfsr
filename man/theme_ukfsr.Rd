@@ -65,4 +65,12 @@ p
 
 p + theme_ukfsr()
 
+b <- ggplot2::ggplot(ukfsr::bdloss) + 
+ggplot2::geom_col(ggplot2::aes(x = Type, y = Percentage, fill = Status), position = ggplot2::position_stack()) + 
+ggplot2::coord_flip()
+
+b
+
+b + theme_ukfsr(base_size = 10, horizontal = TRUE)
+
 }
