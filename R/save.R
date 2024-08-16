@@ -138,7 +138,7 @@ parse_indicator <- function(indicator_id) {
 #' #file created will be '1_1_1_test_graphic.png/svg'
 #' }
 save_graphic <- function(graphic, indicator_id, indicator_desc = "") {
-  gtype <- class(graphic) %in% c("gg", "ggplot") 
+  gtype <- class(graphic) %in% c("gg", "ggplot", "patchwork") 
   if(!all(gtype)) {
     rlang::abort("object must be a ggplot graphic")
   }
