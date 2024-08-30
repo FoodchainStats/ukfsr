@@ -105,14 +105,15 @@ theme_ukfsr <- function(base_size = 14,
       margin = ggplot2::margin(),
       debug = FALSE
     ),
-    axis.line.y =        ggplot2::element_line(colour = "black"),
-    axis.line.x =        ggplot2::element_blank(),
+    axis.line.y =        ggplot2::element_blank(),
+    axis.line.x =        ggplot2::element_line(colour = "black"),
     axis.text =          ggplot2::element_text(size = ggplot2::rel(1.8)),
     axis.text.x =        ggplot2::element_text(margin = ggplot2::margin(t = 0.8 * half_line / 2), vjust = 1),
     # axis.text.x.top =    ggplot2::element_text(margin = margin(b = 0.8 * half_line / 2), vjust = 0),
     axis.text.y =        ggplot2::element_text(margin = ggplot2::margin(r = 0.8 * half_line / 2), hjust = 1),
     # axis.text.y.right =  ggplot2::element_text(margin = margin(l = 0.8 * half_line / 2), hjust = 0),
     axis.ticks =         ggplot2::element_blank(),
+    axis.ticks.x =       ggplot2::element_line(colour = "black"),
     axis.ticks.length =  unit(half_line / 2, "pt"),
     # axis.ticks.length.x = NULL,
     # axis.ticks.length.x.top = NULL,
@@ -223,6 +224,8 @@ theme_ukfsr <- function(base_size = 14,
     t <- t %+replace%
       ggplot2::theme(
         panel.grid.major.x = ggplot2::element_line(colour = "#cbcbcb",linewidth = ggplot2::rel(0.5)),
+        axis.line.x = element_blank(),
+        axis.ticks.x = element_blank(),
         panel.grid.major.y = ggplot2::element_blank(),  
       )
   }
