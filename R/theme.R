@@ -5,6 +5,7 @@
 #' @param base_line_size Base size for line elements
 #' @param base_rect_size Base size for rect elements
 #' @param horizontal Set to \code{TRUE} to adjust the theme for horizontal plots
+#' @param x_axis Whether to include a distinct x axis line including tickmarks
 #' @param chart_line_size sets the default line width for geom_line. See
 #'   *Default theme settings*
 #'
@@ -58,6 +59,7 @@ theme_ukfsr <- function(base_size = 14,
                         base_line_size = base_size / 20,
                         base_rect_size = base_size / 20,
                         horizontal = FALSE,
+                        x_axis = TRUE,
                         chart_line_size = 2) {
   
   # https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html
@@ -219,6 +221,14 @@ theme_ukfsr <- function(base_size = 14,
     
     
   )
+  
+  if(!x_axis) {
+    t <- t %+replace%
+      ggplot2::theme(
+        axis.line.x = element_blank(),
+        axis.ticks.x = element_blank()
+      )
+  }
   
   if(horizontal) {
     t <- t %+replace%

@@ -10,6 +10,7 @@ theme_ukfsr(
   base_line_size = base_size/20,
   base_rect_size = base_size/20,
   horizontal = FALSE,
+  x_axis = TRUE,
   chart_line_size = 2
 )
 }
@@ -23,6 +24,8 @@ theme_ukfsr(
 \item{base_rect_size}{Base size for rect elements}
 
 \item{horizontal}{Set to \code{TRUE} to adjust the theme for horizontal plots}
+
+\item{x_axis}{Whether to include a distinct x axis line including tickmarks}
 
 \item{chart_line_size}{sets the default line width for geom_line. See
 \emph{Default theme settings}}
