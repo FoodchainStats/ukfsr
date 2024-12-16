@@ -43,7 +43,7 @@ bucket_manifest <- function(bucket = ukfsr::s3_bucket(), file_ext = "png") {
     }
   }
   
-  manifest <- aws.s3::get_bucket_df(bucket)
+  manifest <- aws.s3::get_bucket_df(bucket, max = Inf)
   
   files <- manifest |> 
     dplyr::select("Key") |>
