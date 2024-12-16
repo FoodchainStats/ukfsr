@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-10-23T12:48Z
+last_built: 2024-12-16T12:15Z
 urls:
   reference: https://foodchainstats.github.io/ukfsr/reference
   article: https://foodchainstats.github.io/ukfsr/articles
