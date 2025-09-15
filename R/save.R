@@ -158,13 +158,13 @@ save_graphic <- function(graphic, indicator_id, indicator_desc = "") {
   }
   
   ggplot2::ggsave(tmp, plot = graphic, device = "png", width = 960/72, height = 640/72, dpi = 72)
-  aws.s3::put_object(tmp,
+  aws.s3::put_object(file=tmp,
                      object = paste0(s3path, ".png"),
                      bucket = s3_bucket(),
                      headers = c("x-amz-acl" = "bucket-owner-full-control"))
   
   ggplot2::ggsave(tmp, plot = graphic, device = "svg", width = 960/72, height = 640/72, dpi = 72)
-  aws.s3::put_object(tmp,
+  aws.s3::put_object(file=tmp,
                      object = paste0(s3path, ".svg"),
                      bucket = s3_bucket(),
                      headers = c("x-amz-acl" = "bucket-owner-full-control"))
